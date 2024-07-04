@@ -56,12 +56,9 @@ void stop() {
 }
 
 int main(void) {
-    // Configure Port A as input for switches
-    DDRA = 0x00; // All pins in Port A as input
-    // Enable pull-up resistors for switches
+    
+    DDRA = 0b00000000;
     PORTA = (1 << RIGHT_BUTTON) | (1 << LEFT_BUTTON) | (1 << FORWARD_BUTTON) | (1 << BACKWARD_BUTTON) | (1 << STOP_BUTTON);
-
-    // Configure Port D as output for motors
     DDRD = (1 << MOTOR1_PIN1) | (1 << MOTOR1_PIN2) | (1 << MOTOR2_PIN1) | (1 << MOTOR2_PIN2);
 
     while (1) {
